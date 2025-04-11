@@ -1,175 +1,116 @@
 using UnityEngine;
+using UnityEngine.UI;
 
 public class TakeItem : MonoBehaviour
 {
+    [Header("Item Settings")]
     public float pickupRange = 3f;
-    public Transform holdPosition;
-    private GameObject heldObject;
-    private bool isHolding = false;
-    public float throwForce = 10f;
-    public LayerMask pickupLayer;
-
-    private Collider playerCollider;
+    public bool isPickable = true;
+    public AudioClip pickupSound;
+    
+    [Header("UI References")]
+    public Text pickupPromptText;
+    
+    private bool playerInRange = false;
+    private Transform player;
+    private AudioSource audioSource;
+    private ItemHolder itemHolder;
 
     void Start()
     {
-        playerCollider = GetComponent<Collider>();
-        if (playerCollider == null)
+        // Находим игрока
+        GameObject playerObject = GameObject.FindGameObjectWithTag("Player");
+        if (playerObject != null)
         {
-            Debug.LogError("У игрока нет коллайдера!");
+            player = playerObject.transform;
+            itemHolder = playerObject.GetComponent<ItemHolder>();
+            Debug.Log($"Player found: {playerObject.name}, ItemHolder component: {(itemHolder != null ? "Yes" : "No")}");
+        }
+        else
+        {
+            Debug.LogError("Player not found! Make sure player has 'Player' tag");
+        }
+
+        // Настраиваем аудио если есть
+        audioSource = GetComponent<AudioSource>();
+        if (audioSource == null && pickupSound != null)
+        {
+            audioSource = gameObject.AddComponent<AudioSource>();
+        }
+
+        // Скрываем текст подсказки при старте
+        if (pickupPromptText != null)
+        {
+            pickupPromptText.gameObject.SetActive(false);
         }
     }
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.E))
+        if (!isPickable || player == null) 
         {
-            if (!isHolding)
+            return;
+        }
+        
+        // Проверяем расстояние до игрока
+        float distanceToPlayer = Vector3.Distance(transform.position, player.position);
+        playerInRange = distanceToPlayer <= pickupRange;
+        
+        // Управляем видимостью подсказки
+        if (pickupPromptText != null)
+        {
+            pickupPromptText.gameObject.SetActive(playerInRange);
+            if (playerInRange)
             {
-                TryPickup();
-            }
-            else
-            {
-                DropItem();
+                pickupPromptText.text = "Press E to pick up";
             }
         }
-
-        if (isHolding && heldObject != null)
+        
+        // Проверяем нажатие клавиши E
+        if (playerInRange && Input.GetKeyDown(KeyCode.E))
         {
-            heldObject.transform.position = Vector3.Lerp(heldObject.transform.position, holdPosition.position, Time.deltaTime * 20f);
-            if (Input.GetMouseButtonDown(1))
-            {
-                ThrowItem();
-            }
+            Debug.Log($"Attempting to pick up {gameObject.name}");
+            PickupItem();
         }
-
-        CheckForPickupPrompt();
     }
-
-    void TryPickup()
+    
+    void PickupItem()
     {
-        Collider[] hitColliders = Physics.OverlapSphere(transform.position, pickupRange, pickupLayer);
-        float closestDistance = pickupRange + 1f;
-        GameObject closestObject = null;
-
-        foreach (Collider hit in hitColliders)
+        if (itemHolder != null)
         {
-            if (hit.CompareTag("Pickupable"))
+            Vector3 originalPos = transform.position;
+            Debug.Log($"Original position before pickup: {originalPos}");
+            
+            itemHolder.HoldItem(this.gameObject);
+            
+            // Проверяем, изменилась ли позиция
+            if (transform.position == originalPos)
             {
-                float distance = Vector3.Distance(transform.position, hit.transform.position);
-                if (distance < closestDistance)
-                {
-                    closestDistance = distance;
-                    closestObject = hit.gameObject;
-                }
+                Debug.LogWarning("Position didn't change after pickup!");
+            }
+            
+            // Проигрываем звук подбора
+            if (audioSource != null && pickupSound != null)
+            {
+                AudioSource.PlayClipAtPoint(pickupSound, originalPos);
+            }
+            
+            // Скрываем подсказку
+            if (pickupPromptText != null)
+            {
+                pickupPromptText.gameObject.SetActive(false);
             }
         }
-
-        if (closestObject != null)
+        else
         {
-            heldObject = closestObject;
-            Rigidbody rb = heldObject.GetComponent<Rigidbody>();
-            if (rb != null)
-            {
-                rb.isKinematic = true;
-            }
-
-            Collider itemCollider = heldObject.GetComponent<Collider>();
-            if (playerCollider != null && itemCollider != null)
-            {
-                Physics.IgnoreCollision(playerCollider, itemCollider, true);
-            }
-
-            isHolding = true;
-            PickupableItem pickupable = heldObject.GetComponent<PickupableItem>();
-            if (pickupable != null)
-            {
-                pickupable.ShowPrompt(false);
-            }
+            Debug.LogError("ItemHolder component not found on player!");
         }
     }
 
-    void DropItem()
+    // Отрисовка радиуса подбора в редакторе
+    void OnDrawGizmos()
     {
-        if (heldObject != null)
-        {
-            Rigidbody rb = heldObject.GetComponent<Rigidbody>();
-            if (rb != null)
-            {
-                rb.isKinematic = false;
-            }
-
-            Collider itemCollider = heldObject.GetComponent<Collider>();
-            if (playerCollider != null && itemCollider != null)
-            {
-                Physics.IgnoreCollision(playerCollider, itemCollider, false);
-            }
-
-            heldObject = null;
-            isHolding = false;
-        }
-    }
-
-    void ThrowItem()
-    {
-        if (heldObject != null)
-        {
-            Rigidbody rb = heldObject.GetComponent<Rigidbody>();
-            if (rb != null)
-            {
-                rb.isKinematic = false;
-                rb.AddForce(transform.forward * throwForce, ForceMode.Impulse);
-            }
-
-            Collider itemCollider = heldObject.GetComponent<Collider>();
-            if (playerCollider != null && itemCollider != null)
-            {
-                Physics.IgnoreCollision(playerCollider, itemCollider, false);
-            }
-
-            heldObject = null;
-            isHolding = false;
-        }
-    }
-
-    void CheckForPickupPrompt()
-    {
-        if (isHolding) return;
-
-        Collider[] hitColliders = Physics.OverlapSphere(transform.position, pickupRange, pickupLayer);
-
-        foreach (Collider hit in hitColliders)
-        {
-            PickupableItem pickupable = hit.GetComponent<PickupableItem>();
-            if (pickupable != null)
-            {
-                float distance = Vector3.Distance(transform.position, hit.transform.position);
-                bool shouldShow = (distance <= pickupRange);
-                pickupable.ShowPrompt(shouldShow && distance == GetClosestDistance(hitColliders));
-            }
-        }
-    }
-
-    float GetClosestDistance(Collider[] colliders)
-    {
-        float closestDistance = pickupRange + 1f;
-        foreach (Collider hit in colliders)
-        {
-            if (hit.CompareTag("Pickupable"))
-            {
-                float distance = Vector3.Distance(transform.position, hit.transform.position);
-                if (distance < closestDistance)
-                {
-                    closestDistance = distance;
-                }
-            }
-        }
-        return closestDistance;
-    }
-
-    void OnDrawGizmosSelected()
-    {
-        Gizmos.color = Color.green;
+        Gizmos.color = Color.yellow;
         Gizmos.DrawWireSphere(transform.position, pickupRange);
     }
 }
