@@ -1,14 +1,3 @@
-fileFormatVersion: 2
-guid: c3971489033b92f4b8835ee99102f5f7
-PrefabImporter:
-  externalObjects: {}
-  userData: 
-  assetBundleName: 
-  assetBundleVariant: 
-AssetOrigin:
-  serializedVersion: 1
-  productId: 206385
-  packageName: BOKI - Low Poly Nature
-  packageVersion: 1.0
-  assetPath: Assets/BOKI/LowPolyNature/Prefabs/models/rock_1.prefab
-  uploadId: 461542
+version https://git-lfs.github.com/spec/v1
+oid sha256:1bceab42425228810cd2fcc864ef20d8b9dac1f67131e154523da0e24e7d128e
+size 357

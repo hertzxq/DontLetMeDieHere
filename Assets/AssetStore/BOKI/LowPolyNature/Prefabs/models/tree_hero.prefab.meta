@@ -1,14 +1,3 @@
-fileFormatVersion: 2
-guid: b6a95fd1c760e294bb01b209384961d6
-PrefabImporter:
-  externalObjects: {}
-  userData: 
-  assetBundleName: 
-  assetBundleVariant: 
-AssetOrigin:
-  serializedVersion: 1
-  productId: 206385
-  packageName: BOKI - Low Poly Nature
-  packageVersion: 1.0
-  assetPath: Assets/BOKI/LowPolyNature/Prefabs/models/tree_hero.prefab
-  uploadId: 461542
+version https://git-lfs.github.com/spec/v1
+oid sha256:4d06372cca4a7854dee0c3445e037bccafe9562ba1ce3caacf81df89406b82f6
+size 360

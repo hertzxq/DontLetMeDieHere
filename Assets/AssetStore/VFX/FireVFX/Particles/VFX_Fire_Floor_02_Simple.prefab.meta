@@ -1,14 +1,3 @@
-fileFormatVersion: 2
-guid: 2367bf03da674184783a4254456143c7
-PrefabImporter:
-  externalObjects: {}
-  userData: 
-  assetBundleName: 
-  assetBundleVariant: 
-AssetOrigin:
-  serializedVersion: 1
-  productId: 266226
-  packageName: Free Fire VFX - URP
-  packageVersion: 1.0.2023.1
-  assetPath: Assets/Vefects/Free Fire VFX URP/Particles/VFX_Fire_Floor_02_Simple.prefab
-  uploadId: 732705
+version https://git-lfs.github.com/spec/v1
+oid sha256:fdeb593d400c8e6bc8805f1d54adce7c9f46b5862bf3a5cece2d02e5e36f6f25
+size 381

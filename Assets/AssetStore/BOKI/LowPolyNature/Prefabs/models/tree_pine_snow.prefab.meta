@@ -1,14 +1,3 @@
-fileFormatVersion: 2
-guid: 6ed4aebaeedce0a42bd253cc5ab192fb
-PrefabImporter:
-  externalObjects: {}
-  userData: 
-  assetBundleName: 
-  assetBundleVariant: 
-AssetOrigin:
-  serializedVersion: 1
-  productId: 206385
-  packageName: BOKI - Low Poly Nature
-  packageVersion: 1.0
-  assetPath: Assets/BOKI/LowPolyNature/Prefabs/models/tree_pine_snow.prefab
-  uploadId: 461542
+version https://git-lfs.github.com/spec/v1
+oid sha256:e84516067db94791162c45dcae8bbb549b85dc549f31d22eeb4605a6d9d94d42
+size 365

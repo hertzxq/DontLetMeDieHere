@@ -1,10 +1,3 @@
-﻿fileFormatVersion: 2
-guid: 829067bc956b4713b0dd24ceffd9b8fa
-timeCreated: 1634943301
-AssetOrigin:
-  serializedVersion: 1
-  productId: 206385
-  packageName: BOKI - Low Poly Nature
-  packageVersion: 1.0
-  assetPath: Assets/BOKI/LowPolyNature/Scripts/FadeInOut.cs
-  uploadId: 461542
+version https://git-lfs.github.com/spec/v1
+oid sha256:7ef8ea1eaef01470a26f4ba1a596ccbb2fb96d96a399dc509a9a67f7168b5533
+size 282

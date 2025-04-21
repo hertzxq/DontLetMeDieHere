@@ -1,16 +1,3 @@
-fileFormatVersion: 2
-guid: 2ce4c95e7106985488f7f5bb730b3ae5
-ShaderImporter:
-  externalObjects: {}
-  defaultTextures: []
-  nonModifiableTextures: []
-  userData: 
-  assetBundleName: 
-  assetBundleVariant: 
-AssetOrigin:
-  serializedVersion: 1
-  productId: 266226
-  packageName: Free Fire VFX - URP
-  packageVersion: 1.0.2023.1
-  assetPath: Assets/Vefects/Free Fire VFX URP/Shaders/SH_Vefects_VFX_URP_Fire_Flames_01.shader
-  uploadId: 732705
+version https://git-lfs.github.com/spec/v1
+oid sha256:b83cf0b99b9858d9b06f5deeacd9cf82b3ebeb327ec13dfd8e1944a3e4cc0be0
+size 438

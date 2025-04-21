@@ -1,15 +1,3 @@
-fileFormatVersion: 2
-guid: e4592c48c7fe4a44bad77c876d75e8db
-NativeFormatImporter:
-  externalObjects: {}
-  mainObjectFileID: 2100000
-  userData: 
-  assetBundleName: 
-  assetBundleVariant: 
-AssetOrigin:
-  serializedVersion: 1
-  productId: 206385
-  packageName: BOKI - Low Poly Nature
-  packageVersion: 1.0
-  assetPath: Assets/BOKI/LowPolyNature/Materials/Ground/Ground_Sand_Leaves_Yellow_Material.mat
-  uploadId: 461542
+version https://git-lfs.github.com/spec/v1
+oid sha256:11d85926e3034c6625056c7fbecd21d580f27b0dd53f2630b59e85626d10497f
+size 418

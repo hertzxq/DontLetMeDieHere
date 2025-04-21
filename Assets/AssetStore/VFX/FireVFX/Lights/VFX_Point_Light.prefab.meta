@@ -1,14 +1,3 @@
-fileFormatVersion: 2
-guid: 9f90aa15c6b14234ea7247f33f09e816
-PrefabImporter:
-  externalObjects: {}
-  userData: 
-  assetBundleName: 
-  assetBundleVariant: 
-AssetOrigin:
-  serializedVersion: 1
-  productId: 266226
-  packageName: Free Fire VFX - URP
-  packageVersion: 1.0.2023.1
-  assetPath: Assets/Vefects/Free Fire VFX URP/Lights/VFX_Point_Light.prefab
-  uploadId: 732705
+version https://git-lfs.github.com/spec/v1
+oid sha256:ca6a539181455bc0d4b5c4f0b92cb9200ac07830ea9a6639d88ee6cf9ace11e4
+size 369

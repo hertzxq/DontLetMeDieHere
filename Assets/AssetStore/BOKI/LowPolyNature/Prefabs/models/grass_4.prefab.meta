@@ -1,14 +1,3 @@
-fileFormatVersion: 2
-guid: 6733f88b0413b8144bb902b4d5382da0
-PrefabImporter:
-  externalObjects: {}
-  userData: 
-  assetBundleName: 
-  assetBundleVariant: 
-AssetOrigin:
-  serializedVersion: 1
-  productId: 206385
-  packageName: BOKI - Low Poly Nature
-  packageVersion: 1.0
-  assetPath: Assets/BOKI/LowPolyNature/Prefabs/models/grass_4.prefab
-  uploadId: 461542
+version https://git-lfs.github.com/spec/v1
+oid sha256:8ad9e31c2ca7b14082d1174f1c510149a2095d6a5fa73a25a803f64ea6ae061d
+size 358

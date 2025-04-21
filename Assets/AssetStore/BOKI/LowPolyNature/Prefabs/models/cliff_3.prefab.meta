@@ -1,14 +1,3 @@
-fileFormatVersion: 2
-guid: cd9bc081bf1d7e1458160fc48a4bad05
-PrefabImporter:
-  externalObjects: {}
-  userData: 
-  assetBundleName: 
-  assetBundleVariant: 
-AssetOrigin:
-  serializedVersion: 1
-  productId: 206385
-  packageName: BOKI - Low Poly Nature
-  packageVersion: 1.0
-  assetPath: Assets/BOKI/LowPolyNature/Prefabs/models/cliff_3.prefab
-  uploadId: 461542
+version https://git-lfs.github.com/spec/v1
+oid sha256:421634aedb0a5192df74e05e3afe2a6fc3124543c3600a0eb78d9674e71e4425
+size 358

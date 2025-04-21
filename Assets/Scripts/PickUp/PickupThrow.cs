@@ -3,15 +3,30 @@ using UnityEngine;
 public class PickupThrow : MonoBehaviour
 {
     [Header("Pickup Settings")]
-    public Transform handHoldPoint;           // Точка, куда будет прикрепляться предмет
-    public float pickupRange = 3f;            // Дистанция до предмета
-    public LayerMask pickupLayer;             // Только предметы на этом слое можно поднять
+    public Transform handHoldPoint;          
+    public float pickupRange = 3f;        
+    public LayerMask pickupLayer;          
 
     [Header("Throw Settings")]
     public float throwForce = 500f;
 
+    [Header("Audio Settings")]
+    public AudioClip pickupSound;
+    public AudioClip throwSound;
+    private AudioSource audioSource;
+
     private GameObject heldObject;
     private Rigidbody heldRb;
+
+    void Start()
+    {
+        // Get or add AudioSource component
+        audioSource = GetComponent<AudioSource>();
+        if (audioSource == null)
+        {
+            audioSource = gameObject.AddComponent<AudioSource>();
+        }
+    }
 
     void Update()
     {
@@ -34,9 +49,7 @@ public class PickupThrow : MonoBehaviour
         if (Physics.Raycast(ray, out RaycastHit hit, pickupRange, pickupLayer))
         {
             GameObject obj = hit.collider.gameObject;
-            Debug.Log("Попали в объект: " + hit.collider.name);
 
-            // Проверка на тег, если нужно
             if (obj.CompareTag("Pickup"))
             {
                 heldObject = obj;
@@ -48,12 +61,15 @@ public class PickupThrow : MonoBehaviour
                     heldObject.transform.SetParent(handHoldPoint);
                     heldObject.transform.localPosition = Vector3.zero;
                     heldObject.transform.localRotation = Quaternion.identity;
+                    
+                    // Play pickup sound
+                    if (pickupSound != null && audioSource != null)
+                    {
+                        audioSource.PlayOneShot(pickupSound);
+                    }
                 }
             }
         }
-
-        Debug.DrawRay(transform.position, transform.forward * pickupRange, Color.red, 1f);
-        Debug.Log("Пробуем подобрать...");
 
     }
 
@@ -65,6 +81,12 @@ public class PickupThrow : MonoBehaviour
             heldRb.isKinematic = false;
 
             heldRb.AddForce(transform.forward * throwForce);
+            
+            // Play throw sound
+            if (throwSound != null && audioSource != null)
+            {
+                audioSource.PlayOneShot(throwSound);
+            }
 
             heldObject = null;
             heldRb = null;

@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 1093020611942549854}
   - component: {fileID: -8145602855435459535}
   - component: {fileID: 1696472397704281909}
+  - component: {fileID: 3676045727364831166}
   m_Layer: 0
   m_Name: tree_birch
   m_TagString: Untagged
@@ -132,3 +133,22 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.42979625, y: 6.182025, z: 0.42963433}
   m_Center: {x: 0.0013598651, y: 3.091012, z: 0.043649286}
+--- !u!205 &3676045727364831166
+LODGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1453479625222760587}
+  serializedVersion: 2
+  m_LocalReferencePoint: {x: 0.07377076, y: 3.091012, z: -0.4364791}
+  m_Size: 1
+  m_FadeMode: 0
+  m_AnimateCrossFading: 0
+  m_LastLODIsBillboard: 0
+  m_LODs:
+  - screenRelativeHeight: 0.02
+    fadeTransitionWidth: 0
+    renderers:
+    - renderer: {fileID: 1093020611942549854}
+  m_Enabled: 1

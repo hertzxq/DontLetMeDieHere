@@ -1,14 +1,3 @@
-fileFormatVersion: 2
-guid: e01f2e62cf41a3449be2dade3b2c2d79
-PrefabImporter:
-  externalObjects: {}
-  userData: 
-  assetBundleName: 
-  assetBundleVariant: 
-AssetOrigin:
-  serializedVersion: 1
-  productId: 266226
-  packageName: Free Fire VFX - URP
-  packageVersion: 1.0.2023.1
-  assetPath: Assets/Vefects/Free Fire VFX URP/Particles/VFX_Fire_01_Medium_Smoke.prefab
-  uploadId: 732705
+version https://git-lfs.github.com/spec/v1
+oid sha256:17b2f26035b6db2339a9fab880a0b9702a64bbde2a3d16ba050ab5de79b424d0
+size 381

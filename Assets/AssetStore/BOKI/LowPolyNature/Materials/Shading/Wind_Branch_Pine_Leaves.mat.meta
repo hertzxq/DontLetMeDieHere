@@ -1,15 +1,3 @@
-fileFormatVersion: 2
-guid: cd9d77c9f1a40ba429214b9de8558899
-NativeFormatImporter:
-  externalObjects: {}
-  mainObjectFileID: 2100000
-  userData: 
-  assetBundleName: 
-  assetBundleVariant: 
-AssetOrigin:
-  serializedVersion: 1
-  productId: 206385
-  packageName: BOKI - Low Poly Nature
-  packageVersion: 1.0
-  assetPath: Assets/BOKI/LowPolyNature/Materials/Shading/Wind_Branch_Pine_Leaves.mat
-  uploadId: 461542
+version https://git-lfs.github.com/spec/v1
+oid sha256:a5870e00dae1b782502bc12b9703d19bf75254fff5ef5a224a0c498d48a5bb7b
+size 408

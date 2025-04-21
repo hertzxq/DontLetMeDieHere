@@ -1,14 +1,3 @@
-fileFormatVersion: 2
-guid: f9ea1fe99e0aedc40b753ab17eefdf99
-PrefabImporter:
-  externalObjects: {}
-  userData: 
-  assetBundleName: 
-  assetBundleVariant: 
-AssetOrigin:
-  serializedVersion: 1
-  productId: 206385
-  packageName: BOKI - Low Poly Nature
-  packageVersion: 1.0
-  assetPath: Assets/BOKI/LowPolyNature/Prefabs/models/bush_1.prefab
-  uploadId: 461542
+version https://git-lfs.github.com/spec/v1
+oid sha256:ff9a4e315f5b4458bdef6679f3eceb6afb5379cbe2bbb290e9c73eb1c896f7df
+size 357

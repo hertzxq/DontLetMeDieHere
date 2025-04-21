@@ -1,15 +1,3 @@
-fileFormatVersion: 2
-guid: 8bd95ac271a28e84fb4ba257973640d4
-NativeFormatImporter:
-  externalObjects: {}
-  mainObjectFileID: 2100000
-  userData: 
-  assetBundleName: 
-  assetBundleVariant: 
-AssetOrigin:
-  serializedVersion: 1
-  productId: 266226
-  packageName: Free Fire VFX - URP
-  packageVersion: 1.0.2023.1
-  assetPath: Assets/Vefects/Free Fire VFX URP/Materials/M_VFX_Fire_Quad_02.mat
-  uploadId: 732705
+version https://git-lfs.github.com/spec/v1
+oid sha256:8e019624d1d05335a92eb635cdcf8ad52e698bc68030e5c14b96b48399069a3c
+size 406

@@ -1,17 +1,3 @@
-fileFormatVersion: 2
-guid: 88bd2e971f8584c448e3d8176cea1fcb
-ScriptedImporter:
-  internalIDToNameTable: []
-  externalObjects: {}
-  serializedVersion: 2
-  userData: 
-  assetBundleName: 
-  assetBundleVariant: 
-  script: {fileID: 11500000, guid: 625f186215c104763be7675aa2d941aa, type: 3}
-AssetOrigin:
-  serializedVersion: 1
-  productId: 206385
-  packageName: BOKI - Low Poly Nature
-  packageVersion: 1.0
-  assetPath: Assets/BOKI/LowPolyNature/Shaders/Skybox_Shader.shadergraph
-  uploadId: 461542
+version https://git-lfs.github.com/spec/v1
+oid sha256:f56f8db1d09bc790915dd635ea51cedde3f1732f3ce3a0016dace923f1e538db
+size 493

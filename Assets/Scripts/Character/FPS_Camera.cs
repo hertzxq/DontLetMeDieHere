@@ -7,7 +7,7 @@ public class FPS_Camera : MonoBehaviour
 
     [Header("Mouse Settings")]
     public float mouseSensitivity = 2f; 
-    public float minY = -45f, maxY = 45f; 
+    public float minY = -60f, maxY = 60f; // Уменьшенный диапазон для стандартного FPS-обзора
 
     private float rotationX = 0f; 
     private float rotationY = 0f; 
@@ -17,6 +17,10 @@ public class FPS_Camera : MonoBehaviour
     public float bobAmplitude = 0.05f;
     private float bobTimer;
     private float defaultCamY;
+
+    [Header("UI")]
+    public Canvas gameOverCanvas; // Ссылка на Canvas с UI окончания игры
+    public Canvas pauseCanvas; // Ссылка на Canvas с UI паузы
 
     void Start()
     {
@@ -29,6 +33,13 @@ public class FPS_Camera : MonoBehaviour
 
     void Update()
     {
+        if ((gameOverCanvas != null && gameOverCanvas.gameObject.activeInHierarchy) || 
+            (pauseCanvas != null && pauseCanvas.gameObject.activeInHierarchy))
+        {
+            // Если активно UI окончания игры или паузы, не обрабатываем поворот камеры
+            return;
+        }
+
         HandleMouseLook();
         HandleHeadBobbing();
         UpdateCameraPosition();

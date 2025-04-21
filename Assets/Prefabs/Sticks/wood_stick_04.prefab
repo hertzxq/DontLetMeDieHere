@@ -13,13 +13,13 @@ GameObject:
   - component: {fileID: 899415091964648526}
   - component: {fileID: 282350697783462319}
   - component: {fileID: 1071310392563164196}
-  - component: {fileID: 8019953603977124465}
+  - component: {fileID: 6028926295411401894}
   m_Layer: 3
   m_Name: wood_stick_04
-  m_TagString: Pickupable
+  m_TagString: Pickup
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 2147483647
+  m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!4 &2031248357144553249
 Transform:
@@ -30,7 +30,7 @@ Transform:
   m_GameObject: {fileID: 1692123325163257243}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 263.41678, y: 3.821, z: 295.47192}
+  m_LocalPosition: {x: 263.315, y: 102.58, z: 288.15643}
   m_LocalScale: {x: 0.1338, y: 0.1338, z: 0.1338}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -137,17 +137,22 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &8019953603977124465
-MonoBehaviour:
+--- !u!205 &6028926295411401894
+LODGroup:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1692123325163257243}
+  serializedVersion: 2
+  m_LocalReferencePoint: {x: 0, y: 0, z: 0}
+  m_Size: 1
+  m_FadeMode: 0
+  m_AnimateCrossFading: 0
+  m_LastLODIsBillboard: 0
+  m_LODs:
+  - screenRelativeHeight: 0.02
+    fadeTransitionWidth: 0
+    renderers:
+    - renderer: {fileID: 899415091964648526}
   m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6bf000b8fff4b3044a8d0d36b103726f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  pickupPromptPrefab: {fileID: 1969580299096562370, guid: 4f0eb4cf88aacaa4d9c4e79fddc07d83, type: 3}
-  displayHeight: 1

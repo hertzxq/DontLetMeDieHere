@@ -1,14 +1,3 @@
-fileFormatVersion: 2
-guid: f0f9b6f920ec2784488961c925a7003b
-PrefabImporter:
-  externalObjects: {}
-  userData: 
-  assetBundleName: 
-  assetBundleVariant: 
-AssetOrigin:
-  serializedVersion: 1
-  productId: 206385
-  packageName: BOKI - Low Poly Nature
-  packageVersion: 1.0
-  assetPath: Assets/BOKI/LowPolyNature/Prefabs/models/mountain_snow_2.prefab
-  uploadId: 461542
+version https://git-lfs.github.com/spec/v1
+oid sha256:fcd5c1d790fe8375911e9e0932e130a295150ba85a21331206185ffd3e05fd31
+size 366

@@ -1,14 +1,3 @@
-fileFormatVersion: 2
-guid: b10592ee3c5e98444bb28689626de8ad
-PrefabImporter:
-  externalObjects: {}
-  userData: 
-  assetBundleName: 
-  assetBundleVariant: 
-AssetOrigin:
-  serializedVersion: 1
-  productId: 266226
-  packageName: Free Fire VFX - URP
-  packageVersion: 1.0.2023.1
-  assetPath: Assets/Vefects/Free Fire VFX URP/Scene/Prefabs/VFX.prefab
-  uploadId: 732705
+version https://git-lfs.github.com/spec/v1
+oid sha256:a6fb1f13f50b7e60d7c41bfcc31b9e69bf2ec2f5855ceb9ffe70247e7e9221d3
+size 364

@@ -1,14 +1,3 @@
-fileFormatVersion: 2
-guid: 1ead9a188a442fa48a55ba517b40ccbf
-PrefabImporter:
-  externalObjects: {}
-  userData: 
-  assetBundleName: 
-  assetBundleVariant: 
-AssetOrigin:
-  serializedVersion: 1
-  productId: 206385
-  packageName: BOKI - Low Poly Nature
-  packageVersion: 1.0
-  assetPath: Assets/BOKI/LowPolyNature/Prefabs/models/wall_1.prefab
-  uploadId: 461542
+version https://git-lfs.github.com/spec/v1
+oid sha256:58dfdf35337eae7f5647fc26286f02b59f65fb2165a0b0b3b2176290771788eb
+size 357

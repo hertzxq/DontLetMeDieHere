@@ -1,15 +1,3 @@
-fileFormatVersion: 2
-guid: 1307722cb44d54445a2e07ca92201cc3
-NativeFormatImporter:
-  externalObjects: {}
-  mainObjectFileID: 2100000
-  userData: 
-  assetBundleName: 
-  assetBundleVariant: 
-AssetOrigin:
-  serializedVersion: 1
-  productId: 266226
-  packageName: Free Fire VFX - URP
-  packageVersion: 1.0.2023.1
-  assetPath: Assets/Vefects/Free Fire VFX URP/_ Extra/Resources/Materials/M_Vefects_Extra_Billboard_10.mat
-  uploadId: 732705
+version https://git-lfs.github.com/spec/v1
+oid sha256:ca6d53f66d20b319be12cd473350976135d29f2811a4e0109dbd46e6f67b4998
+size 434

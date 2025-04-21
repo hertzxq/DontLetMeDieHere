@@ -1,14 +1,3 @@
-fileFormatVersion: 2
-guid: 3bdd103a0f79e644aa09168c5826dbdc
-PrefabImporter:
-  externalObjects: {}
-  userData: 
-  assetBundleName: 
-  assetBundleVariant: 
-AssetOrigin:
-  serializedVersion: 1
-  productId: 206385
-  packageName: BOKI - Low Poly Nature
-  packageVersion: 1.0
-  assetPath: Assets/BOKI/LowPolyNature/Prefabs/models/mountain_2.prefab
-  uploadId: 461542
+version https://git-lfs.github.com/spec/v1
+oid sha256:f1e34dd25aba0ed86969ce1ea0c2501a83bc31ad4d706779021359020dbc1f52
+size 361

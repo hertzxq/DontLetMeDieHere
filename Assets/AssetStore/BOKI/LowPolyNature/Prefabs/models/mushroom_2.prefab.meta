@@ -1,14 +1,3 @@
-fileFormatVersion: 2
-guid: 0800fb93811b7614ab094c9661c86ae9
-PrefabImporter:
-  externalObjects: {}
-  userData: 
-  assetBundleName: 
-  assetBundleVariant: 
-AssetOrigin:
-  serializedVersion: 1
-  productId: 206385
-  packageName: BOKI - Low Poly Nature
-  packageVersion: 1.0
-  assetPath: Assets/BOKI/LowPolyNature/Prefabs/models/mushroom_2.prefab
-  uploadId: 461542
+version https://git-lfs.github.com/spec/v1
+oid sha256:518d116ae60ddebc0d2f6f12d011a4a29f9bd660303d6398a4e0085fc13713f1
+size 361

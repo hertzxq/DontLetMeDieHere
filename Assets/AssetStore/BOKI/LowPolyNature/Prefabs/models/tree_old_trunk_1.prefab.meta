@@ -1,14 +1,3 @@
-fileFormatVersion: 2
-guid: b540a01988cc0ba4baed8af8e2bbbf10
-PrefabImporter:
-  externalObjects: {}
-  userData: 
-  assetBundleName: 
-  assetBundleVariant: 
-AssetOrigin:
-  serializedVersion: 1
-  productId: 206385
-  packageName: BOKI - Low Poly Nature
-  packageVersion: 1.0
-  assetPath: Assets/BOKI/LowPolyNature/Prefabs/models/tree_old_trunk_1.prefab
-  uploadId: 461542
+version https://git-lfs.github.com/spec/v1
+oid sha256:336f2f81f7bbc19ce342d869242fd2e7707b8bf9e4a9ba5264cc29ff3d6499e9
+size 367

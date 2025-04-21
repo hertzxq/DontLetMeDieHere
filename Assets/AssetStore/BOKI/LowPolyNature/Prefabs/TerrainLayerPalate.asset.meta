@@ -1,15 +1,3 @@
-fileFormatVersion: 2
-guid: 7352f946fc2ebbd4782181c1c68158d0
-NativeFormatImporter:
-  externalObjects: {}
-  mainObjectFileID: 11400000
-  userData: 
-  assetBundleName: 
-  assetBundleVariant: 
-AssetOrigin:
-  serializedVersion: 1
-  productId: 206385
-  packageName: BOKI - Low Poly Nature
-  packageVersion: 1.0
-  assetPath: Assets/BOKI/LowPolyNature/Prefabs/TerrainLayerPalate.asset
-  uploadId: 461542
+version https://git-lfs.github.com/spec/v1
+oid sha256:faced7f49232993afbfe1876c50c9fadc08863112e547ca33644463ddcd8f01a
+size 396

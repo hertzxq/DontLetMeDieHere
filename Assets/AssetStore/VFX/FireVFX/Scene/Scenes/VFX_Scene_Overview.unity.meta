@@ -1,14 +1,3 @@
-fileFormatVersion: 2
-guid: e56e323c89f9238418e110251e73aed1
-DefaultImporter:
-  externalObjects: {}
-  userData: 
-  assetBundleName: 
-  assetBundleVariant: 
-AssetOrigin:
-  serializedVersion: 1
-  productId: 266226
-  packageName: Free Fire VFX - URP
-  packageVersion: 1.0.2023.1
-  assetPath: Assets/Vefects/Free Fire VFX URP/Scene/Scenes/VFX_Scene_Overview.unity
-  uploadId: 732705
+version https://git-lfs.github.com/spec/v1
+oid sha256:77e1de6cf23f06cbdec97d4a8ce2330195dbb4d01898d68dc58da02723c8b293
+size 378

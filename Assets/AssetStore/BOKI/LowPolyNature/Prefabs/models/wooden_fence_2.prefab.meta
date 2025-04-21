@@ -1,14 +1,3 @@
-fileFormatVersion: 2
-guid: e8bc6d4d37c064545a9a92c3c320d6df
-PrefabImporter:
-  externalObjects: {}
-  userData: 
-  assetBundleName: 
-  assetBundleVariant: 
-AssetOrigin:
-  serializedVersion: 1
-  productId: 206385
-  packageName: BOKI - Low Poly Nature
-  packageVersion: 1.0
-  assetPath: Assets/BOKI/LowPolyNature/Prefabs/models/wooden_fence_2.prefab
-  uploadId: 461542
+version https://git-lfs.github.com/spec/v1
+oid sha256:f37d0d08c0dc8140195281c6da4d782dae86a8a67d4e406bb671a12c939f42e7
+size 365

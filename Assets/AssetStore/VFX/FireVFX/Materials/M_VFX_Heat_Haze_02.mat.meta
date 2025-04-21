@@ -1,15 +1,3 @@
-fileFormatVersion: 2
-guid: 6a515d564041a2142ae1fe699a30cb2d
-NativeFormatImporter:
-  externalObjects: {}
-  mainObjectFileID: 2100000
-  userData: 
-  assetBundleName: 
-  assetBundleVariant: 
-AssetOrigin:
-  serializedVersion: 1
-  productId: 266226
-  packageName: Free Fire VFX - URP
-  packageVersion: 1.0.2023.1
-  assetPath: Assets/Vefects/Free Fire VFX URP/Materials/M_VFX_Heat_Haze_02.mat
-  uploadId: 732705
+version https://git-lfs.github.com/spec/v1
+oid sha256:0940b9d81c70cca4a5eda842ae207cd6b747a02e4cde54b947243999f972f628
+size 406

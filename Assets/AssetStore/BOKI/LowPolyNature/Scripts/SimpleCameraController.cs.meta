@@ -1,18 +1,3 @@
-fileFormatVersion: 2
-guid: be76e5f14cfee674cb30b491fb72b09b
-MonoImporter:
-  externalObjects: {}
-  serializedVersion: 2
-  defaultReferences: []
-  executionOrder: 0
-  icon: {instanceID: 0}
-  userData: 
-  assetBundleName: 
-  assetBundleVariant: 
-AssetOrigin:
-  serializedVersion: 1
-  productId: 206385
-  packageName: BOKI - Low Poly Nature
-  packageVersion: 1.0
-  assetPath: Assets/BOKI/LowPolyNature/Scripts/SimpleCameraController.cs
-  uploadId: 461542
+version https://git-lfs.github.com/spec/v1
+oid sha256:5e687c8a0a91533cb4f31d5fe45cbfd1d0d16c836f30d64a95e962c794ad59dd
+size 451
