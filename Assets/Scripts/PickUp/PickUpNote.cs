@@ -11,8 +11,11 @@ public class PickUpNote : MonoBehaviour
     [Header("Note Settings")]
     public float rotationSpeed = 5f;
     public float moveDuration = 0.5f;
-    public float maxRotationY = 30f; // Максимальный угол поворота по оси Y
-    public float maxRotationX = 30f; // Максимальный угол поворота по оси X
+    public float maxRotation = 30f; // Максимальный угол поворота по всем осям
+
+    [Header("Camera Settings")]
+    public float cameraMaxRotation = 45f; // Максимальный угол поворота камеры
+    public float noteRotationSensitivity = 2f; // Чувствительность вращения записки от движения камеры
 
     [Header("Audio Settings")]
     public AudioClip pickupSound;
@@ -22,11 +25,21 @@ public class PickUpNote : MonoBehaviour
     private GameObject heldNote;
     private Rigidbody noteRb;
     private bool isHolding = false;
-    private float currentYRotation = 0f; // Текущий угол поворота по Y
     private float currentXRotation = 0f; // Текущий угол поворота по X
+    private float currentYRotation = 0f; // Текущий угол поворота по Y
+    private float currentZRotation = 0f; // Текущий угол поворота по Z
+    private Quaternion initialRotation; // Начальная ротация записки
+    
+    private Vector3 originalCameraPosition;
+    private Quaternion originalCameraRotation;
+    private float currentCameraXRotation = 0f;
+    private float currentCameraYRotation = 0f;
+    private float lastCameraXRotation = 0f;
+    private float lastCameraYRotation = 0f;
 
     private FPS_Controller fpsController;
     private FPS_Camera fpsCamera;
+    private Camera mainCamera;
 
     void Start()
     {
@@ -34,6 +47,7 @@ public class PickUpNote : MonoBehaviour
 
         fpsController = GetComponent<FPS_Controller>();
         fpsCamera = GetComponentInChildren<FPS_Camera>();
+        mainCamera = Camera.main;
 
         if (fpsController == null)
             Debug.LogWarning("FPS_Controller not found!");
@@ -57,15 +71,37 @@ public class PickUpNote : MonoBehaviour
             float mouseX = Input.GetAxis("Mouse X") * rotationSpeed;
             float mouseY = Input.GetAxis("Mouse Y") * rotationSpeed;
             
-            // Ограничиваем вращение по осям X и Y
-            currentYRotation += mouseX;
-            currentXRotation -= mouseY; // Инвертируем для естественного движения
+            // Сохраняем предыдущие значения углов камеры
+            lastCameraXRotation = currentCameraXRotation;
+            lastCameraYRotation = currentCameraYRotation;
             
-            currentYRotation = Mathf.Clamp(currentYRotation, -maxRotationY, maxRotationY);
-            currentXRotation = Mathf.Clamp(currentXRotation, -maxRotationX, maxRotationX);
+            // Обновляем углы вращения камеры
+            currentCameraYRotation += mouseX;
+            currentCameraXRotation -= mouseY; // Инвертируем для естественного движения
             
-            // Применяем вращение по осям X и Y, сохраняя исходное значение Z
-            Quaternion targetRotation = Quaternion.Euler(currentXRotation, currentYRotation, heldNote.transform.eulerAngles.z);
+            // Ограничиваем вращение камеры
+            currentCameraXRotation = Mathf.Clamp(currentCameraXRotation, -cameraMaxRotation, cameraMaxRotation);
+            currentCameraYRotation = Mathf.Clamp(currentCameraYRotation, -cameraMaxRotation, cameraMaxRotation);
+            
+            // Применяем вращение к камере
+            Quaternion targetCameraRotation = originalCameraRotation * Quaternion.Euler(currentCameraXRotation, currentCameraYRotation, 0);
+            mainCamera.transform.rotation = targetCameraRotation;
+            
+            // Вращение записки на основе движения камеры
+            float deltaX = currentCameraXRotation - lastCameraXRotation;
+            float deltaY = currentCameraYRotation - lastCameraYRotation;
+            
+            // Инвертируем направление вращения для более естественного ощущения
+            currentYRotation += deltaX * noteRotationSensitivity; // Вращение по Y от движения мыши по X
+            currentXRotation -= deltaY * noteRotationSensitivity; // Вращение по X от движения мыши по Y
+            
+            // Ограничиваем вращение записки по всем осям
+            currentXRotation = Mathf.Clamp(currentXRotation, -maxRotation, maxRotation);
+            currentYRotation = Mathf.Clamp(currentYRotation, -maxRotation, maxRotation);
+            currentZRotation = Mathf.Clamp(currentZRotation, -maxRotation, maxRotation);
+            
+            // Применяем вращение по всем осям к записке
+            Quaternion targetRotation = initialRotation * Quaternion.Euler(currentXRotation, currentYRotation, currentZRotation);
             heldNote.transform.rotation = targetRotation;
         }
     }
@@ -91,16 +127,25 @@ public class PickUpNote : MonoBehaviour
                         audioSource.PlayOneShot(pickupSound);
 
                     isHolding = true;
-                    currentYRotation = 0f; // Сбрасываем угол поворота при взятии записки
-                    currentXRotation = 0f; // Сбрасываем угол поворота по X
+                    currentXRotation = 0f;
+                    currentYRotation = 0f;
+                    currentZRotation = 0f;
+                    
+                    // Сохраняем исходное положение и поворот камеры
+                    originalCameraPosition = mainCamera.transform.position;
+                    originalCameraRotation = mainCamera.transform.rotation;
+                    currentCameraXRotation = 0f;
+                    currentCameraYRotation = 0f;
+                    lastCameraXRotation = 0f;
+                    lastCameraYRotation = 0f;
 
                     if (fpsController != null)
                         fpsController.enabled = false;
                     if (fpsCamera != null)
                         fpsCamera.enabled = false;
 
-                    Cursor.lockState = CursorLockMode.None;
-                    Cursor.visible = true;
+                    Cursor.lockState = CursorLockMode.Locked;
+                    Cursor.visible = false;
 
                     StartCoroutine(MoveNoteToHoldPoint());
                 }
@@ -115,9 +160,9 @@ public class PickUpNote : MonoBehaviour
         Quaternion startRot = heldNote.transform.rotation;
 
         Vector3 endPos = noteHoldPoint.position;
-        // Поворачиваем записку к лицу игрока
+        // Поворачиваем записку к лицу игрока с поворотом на 90 градусов по X
         Quaternion endRot = Quaternion.LookRotation(
-            Camera.main.transform.position - noteHoldPoint.position);
+            Camera.main.transform.position - noteHoldPoint.position) * Quaternion.Euler(90, 0, 0);
 
         while (time < 1f)
         {
@@ -130,6 +175,7 @@ public class PickUpNote : MonoBehaviour
 
         heldNote.transform.position = endPos;
         heldNote.transform.rotation = endRot;
+        initialRotation = endRot; 
         heldNote.transform.SetParent(noteHoldPoint);
     }
 
@@ -142,6 +188,10 @@ public class PickUpNote : MonoBehaviour
 
             if (putAwaySound != null)
                 audioSource.PlayOneShot(putAwaySound);
+
+            // Восстанавливаем исходное положение и поворот камеры
+            mainCamera.transform.position = originalCameraPosition;
+            mainCamera.transform.rotation = originalCameraRotation;
 
             heldNote = null;
             noteRb = null;

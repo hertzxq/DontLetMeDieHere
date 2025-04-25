@@ -21,6 +21,7 @@ public class FireZone : MonoBehaviour
     void Start()
     {
         Time.timeScale = 1f;
+        AudioListener.pause = false;
         UpdateTimerUI();
         audioSource = GetComponent<AudioSource>();
         if (audioSource == null)
@@ -44,9 +45,9 @@ public class FireZone : MonoBehaviour
             
             // Проверяем, закончилось ли время
             if (currentTime <= 0)
-            {
+            {   
                 GameOver();
-            }
+    }
         }
     }
 
@@ -95,24 +96,28 @@ void GameOver()
     isGameOver = true;
     currentTime = 0;
     UpdateTimerUI();
-    
-    // Показываем Canvas с окончанием игры
+
     if (gameOverCanvas != null)
     {
-        
         gameOverCanvas.gameObject.SetActive(true);
-
         Cursor.visible = true;
         Cursor.lockState = CursorLockMode.None;
     }
-    
-    // Воспроизводим звук окончания игры
-    if (gameOverSound != null && audioSource != null)
+
+    // Отключаем управление:
+    GameObject player = GameObject.FindWithTag("Player");
+    if (player != null)
     {
-        audioSource.PlayOneShot(gameOverSound);
+        FPS_Controller controller = player.GetComponent<FPS_Controller>();
+        if (controller != null)
+            controller.isControllable = false;
     }
-    
+
     Time.timeScale = 0f;
+    AudioListener.pause = true;
+
+
     Debug.Log("Игра окончена! Время истекло.");
 }
+
 }

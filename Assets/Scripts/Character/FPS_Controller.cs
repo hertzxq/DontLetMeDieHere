@@ -11,6 +11,8 @@ public class FPS_Controller : MonoBehaviour
     public float jumpHeight = 1.5f;
     private Vector3 velocity;
     private bool isGrounded;
+    public bool isControllable = true;
+
 
     [Header("Footstep Settings")]
     public AudioSource footstepSource;
@@ -20,12 +22,14 @@ public class FPS_Controller : MonoBehaviour
     private float stepTimer = 0f;
 
 
-    void Update()
-    {
-        HandleMovement();
-        HandleJump();
-        ApplyGravity();
-    }
+void Update()
+{
+    if (!isControllable) return;
+
+    HandleMovement();
+    HandleJump();
+    ApplyGravity();
+}
 
     void HandleMovement()
     {
